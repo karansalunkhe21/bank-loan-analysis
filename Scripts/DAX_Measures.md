@@ -16,11 +16,12 @@ Total Amount Received = SUM('financial_loan'[total_payment])
 Average Interest Rate = AVERAGE('financial_loan'[int_rate])
 
 Average DTI = AVERAGE('financial_loan'[dti])
-
+```
 
 ## Good vs Bad Loans
 
 ```dax
+
 Good Loan Applications = 
     CALCULATE(
         COUNTROWS('financial_loan'),
@@ -39,8 +40,11 @@ Good Loan % =
 Bad Loan % = 
     DIVIDE([Bad Loan Applications], [Total Loan Applications], 0)
 
+```
 
 ## Month-over-Month (MoM) Growth
+
+```dax
 
 MTD Total Funded Amount = 
     CALCULATE([Total Funded Amount], DATESMTD('financial_loan'[issue_date]))
@@ -51,6 +55,8 @@ PMTD Total Funded Amount =
 MoM Funded Amount = [MTD Total Funded Amount] - [PMTD Total Funded Amount]
 
 MoM % = DIVIDE([MoM Funded Amount], [PMTD Total Funded Amount], 0)
+
+```
 
 
 
