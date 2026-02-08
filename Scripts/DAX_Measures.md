@@ -18,7 +18,7 @@ Average Interest Rate = AVERAGE('financial_loan'[int_rate])
 Average DTI = AVERAGE('financial_loan'[dti])
 
 
-**Good vs Bad Loans**
+## Good vs Bad Loans
 
 ```dax
 Good Loan Applications = 
@@ -38,3 +38,53 @@ Good Loan % =
 
 Bad Loan % = 
     DIVIDE([Bad Loan Applications], [Total Loan Applications], 0)
+
+
+## Month-over-Month (MoM) Growth
+
+MTD Total Funded Amount = 
+    CALCULATE([Total Funded Amount], DATESMTD('financial_loan'[issue_date]))
+
+PMTD Total Funded Amount = 
+    CALCULATE([Total Funded Amount], DATESMTD(DATEADD('financial_loan'[issue_date], -1, MONTH)))
+
+MoM Funded Amount = [MTD Total Funded Amount] - [PMTD Total Funded Amount]
+
+MoM % = DIVIDE([MoM Funded Amount], [PMTD Total Funded Amount], 0)
+
+
+
+## Advanced Measures
+
+// Average Loan Amount by Grade
+Avg Loan by Grade = 
+    AVERAGEX(
+        VALUES('financial_loan'[grade]), 
+        CALCULATE([Total Funded Amount])
+    )
+
+// Default Rate
+Default Rate = 
+    DIVIDE(
+        CALCULATE(
+            COUNTROWS('financial_loan'),
+            'financial_loan'[loan_status] = "Charged Off"
+        ),
+        CALCULATE(
+            COUNTROWS('financial_loan'),
+            'financial_loan'[loan_status] IN {"Charged Off","Fully Paid"}
+        ),
+        0
+    )
+
+// Weighted Average Interest Rate
+Weighted Avg Interest = 
+    DIVIDE(
+        SUMX(
+            'financial_loan',
+            'financial_loan'[loan_amount] * 'financial_loan'[int_rate]
+        ),
+        [Total Funded Amount],
+        BLANK()
+    )
+
