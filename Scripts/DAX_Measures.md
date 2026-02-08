@@ -58,10 +58,9 @@ MoM % = DIVIDE([MoM Funded Amount], [PMTD Total Funded Amount], 0)
 
 ```
 
-
-
 ## Advanced Measures
 
+```dax
 // Average Loan Amount by Grade
 Avg Loan by Grade = 
     AVERAGEX(
@@ -93,4 +92,5 @@ Weighted Avg Interest =
         [Total Funded Amount],
         BLANK()
     )
+
 
