@@ -18,7 +18,9 @@ Average Interest Rate = AVERAGE('financial_loan'[int_rate])
 Average DTI = AVERAGE('financial_loan'[dti])
 
 
-## GOOD LOAN VS BAD LOAN
+## **Good vs Bad Loans**
+
+```dax
 Good Loan Applications = 
     CALCULATE(
         COUNTROWS('financial_loan'),
@@ -31,8 +33,8 @@ Bad Loan Applications =
         'financial_loan'[loan_status] = "Charged Off"
     )
 
-Good Loan % = DIVIDE([Good Loan Applications], [Total Loan Applications], 0)
+Good Loan % = 
+    DIVIDE([Good Loan Applications], [Total Loan Applications], 0)
 
-Bad Loan % = DIVIDE([Bad Loan Applications], [Total Loan Applications], 0)
-
-
+Bad Loan % = 
+    DIVIDE([Bad Loan Applications], [Total Loan Applications], 0)
