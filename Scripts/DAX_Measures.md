@@ -18,7 +18,7 @@ Average Interest Rate = AVERAGE('financial_loan'[int_rate])
 Average DTI = AVERAGE('financial_loan'[dti])
 
 
-## **Good vs Bad Loans**
+**Good vs Bad Loans**
 
 ```dax
 Good Loan Applications = 
