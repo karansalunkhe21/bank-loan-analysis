@@ -79,13 +79,11 @@ bank-loan-analysis/
 │   ├── Domain_Knowledge.md            # Banking domain concepts
 │   ├── Data_Terminologies.md          # Data field explanations
 │   ├── data_dictionary.md             # Field definitions
-│   ├── Data_Model.md                  # Data model design
 │   └── User_Guide.md                  # Dashboard usage guide
 │
 ├── Scripts/
-│   ├── power_query_m/                 # Power Query (M) scripts
+│   ├── SQL_Queries/                   # SQL Query scripts
 │   └── dax_measures/                  # DAX calculations
 │
 └── Images/
     ├── dashboard_preview.png          # Dashboard screenshot
-    └── data_model_diagram.png         # Data model diagram
