@@ -71,16 +71,14 @@ bank-loan-analysis/
 │
 ├── PowerBI/
 │   ├── BANK_LOAN_ANALYSIS.pbix        # Power BI Desktop file
-│   └── BANK_LOAN_ANALYSIS.pbit        # Power BI Template (optional)
-│
+│ 
 ├── Data/
 │   ├── financial_loan.csv             # Source dataset
-│   └── data_dictionary.md             # Field definitions
 │
 ├── Documentation/
 │   ├── Domain_Knowledge.md            # Banking domain concepts
 │   ├── Data_Terminologies.md          # Data field explanations
-│   ├── Query_Documentation.md         # DAX measures & queries
+│   ├── data_dictionary.md             # Field definitions
 │   ├── Data_Model.md                  # Data model design
 │   └── User_Guide.md                  # Dashboard usage guide
 │
